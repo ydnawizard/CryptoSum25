@@ -169,4 +169,34 @@
 	\end{enumerate}
 \end{homeworkProblem}
 
+\begin{homeworkProblem}
+	\textbf{(3.2) Question:}\\
+	We want to verify that $IP(\cdot)$ and $IP^{-1}(\cdot)$ are truly inverse operations. We consider a vector $x=(x_1,x_2,...,x_{64})$ of 64 bit. Show that $IP^{-1}(IP(x))=x$ for the first five
+	bits of $x$,i.e. for $x_i = 1,2,3,4,5$.\\
+	\textbf{Solution:}\\
+	Via pg. 70: $IP(Y) = IP(IP^{-1}(R_{16}L_{16}))$. I take this to imply: $IP^{-1}(Y)=IP^{-1}(IP(R_{16}L_{16}))$.
+	If we look at $IP$ and $IP^{-1}$ boxes on pg 62, we can see where each byte is sent after each operation.
+	The byte in position 1 is sent to position 40 after $IP$ and the byte in position 40 is sent to position 1 after $IP^{-1}$.
+	This means that $IP^{-1}$ is undoing what $IP$ did which makes them mutually inverse.
+	We can construct a flow chart to illustrate where each byte goes in each step of the operation $IP^{-1}(IP(x))=x$:
+	\begin{enumerate}
+		\item \(x_1\rightarrow x_{40}\rightarrow x_1\)
+		\item \(x_2\rightarrow x_8\rightarrow x_2\)
+		\item \(x_3\rightarrow x_{48}\rightarrow x_3\)
+		\item \(x_4\rightarrow x_{16}\rightarrow x_4\)
+		\item \(x_5\rightarrow x_{56}\rightarrow x_5\)
+	\end{enumerate}
+
+\end{homeworkProblem}
+
+\pagebreak
+
+\begin{homeworkProblem}
+	\textbf{(3.3) Question:}\\
+	What is the output of the first round of the DES algorithm when the plaintext and the key are both all zeros?\\
+	/textbf{Solution:}\\
+
+
+\end{homeworkProblem}
+
 \end{document}
