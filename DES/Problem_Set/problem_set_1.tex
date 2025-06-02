@@ -194,7 +194,21 @@
 \begin{homeworkProblem}
 	\textbf{(3.3) Question:}\\
 	What is the output of the first round of the DES algorithm when the plaintext and the key are both all zeros?\\
-	/textbf{Solution:}\\
+	\textbf{Solution:}\\
+	If the plaintext is all zeros than all the permutations and expansions will be composed of entirely zeros as well. As far as the key and its subkeys go,
+	they will all be zeros too. This leaves us only needing to plug zero ($000000$) into each S-Box, permute the result, and then XOR with the 32 zeros on the left:
+	\begin{enumerate}
+		\item \(S_1(000000) = 14 = 1110\)
+		\item \(S_2(000000) = 15 = 1111\)
+		\item \(S_3(000000) = 10 = 1010\)
+		\item \(S_4(000000) = 07 = 0111\)
+		\item \(S_5(000000) = 02 = 0010\)
+		\item \(S_6(000000) = 12 = 1100\)
+		\item \(S_7(000000) = 04 = 0100\)
+		\item \(S_8(000000) = 13 = 1101\)
+	\end{enumerate}
+	The output of the S-Boxes is: $11101111101001110010110001001101$ which still needs to be permuted and XOR'd. Through consulting the permutation table on page 66, our new
+	right side is $11011000110110001101101110111100$. XOR with all zeros would give us the same thing so that is our answer.
 
 
 \end{homeworkProblem}

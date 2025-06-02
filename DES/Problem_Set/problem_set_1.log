@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.5.31)  1 JUN 2025 16:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.5.31)  1 JUN 2025 19:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -572,6 +572,12 @@ x[]; :::; x[]\OT1/cmr/m/n/10 )$
 
 
 [2]
+Overfull \hbox (50.79245pt too wide) in paragraph at lines 210--212
+\OT1/cmr/m/n/10 XOR'd. Through con-sult-ing the per-mu-ta-tion ta-ble on page 6
+6, our new right side is $11011000110110001101101110111100$.
+ []
+
+
 
 [3] (./problem_set_1.aux)
  ***********
@@ -596,7 +602,7 @@ hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmti12.pfb>
-Output written on problem_set_1.pdf (3 pages, 117114 bytes).
+Output written on problem_set_1.pdf (3 pages, 120214 bytes).
 PDF statistics:
  67 PDF objects out of 1000 (max. 8388607)
  41 compressed objects within 1 object stream
