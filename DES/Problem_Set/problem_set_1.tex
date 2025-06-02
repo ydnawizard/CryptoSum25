@@ -209,8 +209,62 @@
 	\end{enumerate}
 	The output of the S-Boxes is: $11101111101001110010110001001101$ which still needs to be permuted and XOR'd. Through consulting the permutation table on page 66, our new
 	right side is $11011000110110001101101110111100$. XOR with all zeros would give us the same thing so that is our answer.
-
-
 \end{homeworkProblem}
+
+\begin{homeworkProblem}
+	\textbf{(3.7) Question:}\\
+	A DES key $K_w$ is called a weak key if encryption and decryption are identical operations:
+	\[DES_{k_w}(x)=DES^{-1}_{k_w}(x)\text{,for all }x\]
+	\begin{enumerate}
+		\item Describe the relationship of the subkeys in the ecnryption and decryption algorithm that is required so that above-defined equality is fulfilled.
+		\item There are four weak DES keys. What are they?
+		\item What is the likelihood that a randomly selected key is weak?
+	\end{enumerate}
+	\textbf{Solution:}\\
+	\begin{enumerate}
+		\item In order to satisfy the above statement about weak keys, the sub-keys in each step of the encryption operation would have to be the same as the sub-keys in each step of the decryption operation. Given that the decryption operation is the same as the encryption operation, just with a reversed key schedule, and the fact that $C_0 = C_{16}$ and $D_0 = D_{16}$, the required relationship can be defined as: \[k_{i+1} = k_{16-i} \text{for } i = 0,1,....7\] This works because at 7 the keys will meet in the middle meaning they are all the same.
+		\item The key schedule essentially splits the initial key value in to 2 halves and permutes them independently. In order to satisfy the above statement about weak keys, each half would have to be composed of entirely either ones or zeros so that the key is the same after each permutation. Thus:
+			\begin{enumerate}
+				\item 00000000000000
+				\item 00000001111111
+				\item 11111110000000
+				\item 11111111111111
+			\end{enumerate}
+		\item The keys are 56 bits which means that there are $2^{56}$ possible keys. The chances of picking one of these 4 weak keys would be $4/2^{56}$.
+	\end{enumerate}
+\end{homeworkProblem}
+
+\begin{homeworkProblem}
+	\textbf{(3.9) Question:}\\
+	Assume we perform a known-plaintext attack against DES with one pair of plaintext and ciphertext. How many keys do we have to test in a worst-case scenario if we apply an exhaustive key search in
+	a straightforward way? How many on average?\\
+	\textbf{Solution:}\\
+	Given that there are $2^{56}$ possible keys in DES, one would have to test them all in the worst case. So the worst case is $2^{56}$. I googled "average case of an exhaustive key attack" and found
+	that the average case is approximately half of the worst case time. So the average amount of keys one would have to test is $2^{56}/2=2^{55}$.
+\end{homeworkProblem}
+
+\begin{homeworkProblem}
+	\textbf{(3.12) Question:}\\
+	We study a real-world case in this problem. A commercial file ecryption program from the early 1990s used standard DES with 56 key bits. In those days, performing an exhaustive key search was considerably harder than nowadays, and thus the key length was sufficient for some applications. Unfortunately, the implementation of the key generation was flawed, which we are goin to analyze. Assume that we can test $10^6$ keys per second on a conventional PC.\\
+	\\
+	The key is generated from a password consisting of 8 characters. The key is a simple concatenation of the 8 ASCII characters, yielding $64=8*8$ key bits. With the permutation PC-1 in the key schedule, the least significant bit (LSB) of each 8-bit character is ignored, yielding 56 key bits.\\
+	\begin{enumerate}
+		\item What is the size of the key space if all 8 characters are randomly chosen 8-bit ASCII characters? How long does an average key search take with a single PC?
+		\item How many key bits are used, if the 8 characters are randomly chosen 7-bit ASCII characters (i.e., the most significant bit is always zero)? How long does an
+			average key search take with a single PC?
+		\item How large is the key space if, in addition to the restriction in Part 2, only letters are used as characters. Futhermore, unfortunately, all letters are converted to 
+			capital letters before generating the key in the software. How long does an average key search take with a single PC?
+	\end{enumerate}
+	\pagebreak
+	\textbf{Solution:}
+	\begin{enumerate}
+		\item We can build off our answer to the previous question to answer this. The key space would be $2^{56}$ bits. The average amount of keys check in a key search is $2^{55}$ and given
+			that we can test $10^6$ keys per second, the average key search would take $2^{55}/10^6$ seconds.
+		\item If the key its composed of 8 randomly chosen 7-bit ASCII characters then the least significant bit would be the seventh. We would drop this bit which would give us a key bit size of
+			48 bits. We can then go through the same steps as the previous part and discern that there are $2^{48}$ possible keys and the average key search would take $2^{47}/10^6$ seconds.
+		\item Given that there are only 26 letters, this would mean that there are only $26*8=208$ possible keys. The average key search would test 104 keys and it would take $104/10^6$ seconds.
+	\end{enumerate}
+\end{homeworkProblem}
+
 
 \end{document}
